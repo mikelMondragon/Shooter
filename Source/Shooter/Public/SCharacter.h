@@ -6,6 +6,9 @@
 #include "GameFramework/Character.h"
 #include "SCharacter.generated.h"
 
+class UCameraComponent;
+class USpringArmComponent;
+
 UCLASS()
 class SHOOTER_API ASCharacter : public ACharacter
 {
@@ -16,6 +19,13 @@ public:
 	ASCharacter();
 
 protected:
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<USpringArmComponent> SpringArmComp;
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UCameraComponent> CameraComp;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
